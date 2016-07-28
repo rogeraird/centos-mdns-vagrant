@@ -13,3 +13,7 @@ yum install -y nss-mdns avahi
 # Allow UDP traffic to mdns port
 iptables -A INPUT -p udp -m udp --dport 5353 -j ACCEPT
 service avahi-daemon start
+
+# Add ssh key to authorized_keys for ansible
+cat ssh_key.pub >> ~/.ssh/authorized_keys
+rm ssh_key.pub
